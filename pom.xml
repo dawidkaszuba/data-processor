@@ -11,7 +11,7 @@
 	<groupId>pl.dawidkaszuba</groupId>
 	<artifactId>data-processor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>data-processor</name>
 	<description>Demo project for Spring BootApplication that process data from kafka.</description>
 	<url/>

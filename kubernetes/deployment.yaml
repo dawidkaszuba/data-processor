@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-processor
+  labels:
+    app: data-processor
+  namespace: iot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-processor
+  template:
+    metadata:
+      labels:
+        app: data-processor
+    spec:
+      containers:
+        - name: data-processor
+          image: dawidkaszuba/data-processor:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "10.0.0.110:9092"
+            - name: RAW_DATA_TOPIC_NAME
+              value: "raw-data"
+

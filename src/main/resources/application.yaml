@@ -1,1 +1,14 @@
-spring.application.name=data-processor
+spring:
+  application:
+    name: data-processor
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    admin:
+      properties:
+        bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+
+data-processor:
+  kafka:
+    raw-data-topic:
+      name: ${RAW_DATA_TOPIC_NAME}
+      groupId: data-processor-group
