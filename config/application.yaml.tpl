@@ -2,21 +2,13 @@ spring:
   application:
     name: data-processor
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    bootstrap-servers: 10.0.0.110:9092
     admin:
       properties:
-        bootstrap.servers: ${KAFKA_BOOTSTRAP_SERVERS}
+        bootstrap.servers: 10.0.0.110:9092
 
-data-ingest:
+data-processor:
   kafka:
     raw-data-topic:
-      name: ${RAW_DATA_TOPIC_NAME}
-      partitions: ${RAW_DATA_TOPIC_PARTITIONS}
-      replicas: ${RAW_DATA_TOPIC_REPLICAS}
-
-mqtt:
-  user: ${MQTT_USER}
-  password: ${MQTT_PASSWORD}
-  broker-url: ${MQTT_BROKER_URL}
-  client-id: data-ingest-client
-  topics: ${MQTT_TOPICS}
+      name: raw-data
+      groupId: data-processor-group
